@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>Testergebnis für {{kunde.vorname}} {{kunde.nachname}}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'kunden/style.css' %}">
+  </head>
+  <body>
+    <header><a href="{% url 'index'  %}">Startseite</a></header>
+    <main>
+    <div class="input">
+        <h1>{{kunde.anrede}} {{kunde.vorname}} {{kunde.nachname}}</h1>
+        
+        {% if kunde.bemerkungen %}
+        <div class="bemerkung">
+            <p>{{kunde.bemerkungen}}</p>
+        </div>
+        {% endif %}  
+        
+        <br>
+        <p>Sozialversicherungsnummer {{kunde.sozialversicherungsnummer}} bei {{kunde.versicherung}} </p>
+        <p>wohnhaft in  {{kunde.anschrift}}</p>
+        
+        <form action="{% url 'notify' kunde.id %}" method="post">
+        {% csrf_token %}
+        
+        <label for="testdatum">Datum des Tests: </label>
+        <input type="date" name="testdatum" value={{today}}>
+        <br>
+        <label for="testzeit">Zeit des Tests: </label>
+        <input type="time" name="testzeit" {% if time %}value={{time}}{% endif %}>
+        <br>
+        <br>
+        
+        <input type="radio" name="ergebnis" id="positiv" value="1" {% if positive %}checked="checked"{% endif %}><label for="positiv"><div class="option positivoption">positiv</div></label><br>
+        <input type="radio" name="ergebnis" id="negativ" value="0" {% if not positive %}checked="checked"{% endif %}><label for="negativ"><div class="option negativoption">negativ</div></label><br>
+        
+        <div class="notifychoices">
+        <p>Benachrichtigung:</p>
+        {% for choice in notifier %}
+            <input type="checkbox" name="choice[]" id="not{{ forloop.counter }}" value="{{ choice.0 }}" {% ifequal kunde.kommunikation  choice.0 %}checked="checked"{% endifequal %}>
+            <label for="not{{forloop.counter}}">{{ choice.1 }}</label><br>
+        {% endfor %}
+        </div> 
+        
+        <div class="unten">
+            <a class="abbrbutton" href="{% url 'index'  %}">zurück</a>
+            <input class="editbutton" type="submit" value="getestet"></button>
+        </div>            
+        </form>
+        
+    </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

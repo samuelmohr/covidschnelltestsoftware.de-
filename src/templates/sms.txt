@@ -1,0 +1,4 @@
+{% ifequal kunde.anrede "Frau" %}Sehr geehrte Frau{% else %}{% ifequal kunde.anrede "Herr" %}Sehr geehrter Herr{% else %}Sehr geehrt*{% endifequal %}{% endifequal %} {{kunde.nachname}},
+geboren am {{kunde.geburtsdatum|date:"d.m.Y"}}
+Ihr Covid Schnelltest am {{kunde.testzeit|date:"d.m.y H:i"}} Uhr war {% if kunde.positive %}POSITIV{% else %}NEGATIV{% endif %}.
+Ihre …

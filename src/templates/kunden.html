@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>Schnelltest Kundenübersicht</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'kunden/style.css' %}">
+  </head>
+  <body>
+    <header>
+        <div class="search-container"><form action="{% url 'index' %}" method="get"><input name="search"  type="text" placeholder="Search.." value="{{searchstring}}"><button type="submit">Suchen</button></form></div>
+        <a class='delete' href="{% url 'index' %}"><button>löschen</button></a>
+        
+        <a href="{% url 'admin:login' %}">Admin Pages</a><a href="{% url 'eterminsync' %}">ETERMIN neu laden</a>
+    </header>
+    <main>
+    {% if kunden %}
+        <ul>
+            {% for k in kunden %}
+            <li class="{% if k.informiert %}deactivated{% else %}{% if k.active %}active{% endif %}{% endif %}">
+                <div class="daten">
+                    <div class="name">{{k.nachname}}, {{k.vorname}}</div>
+                    <div class="sozialversicherungsnummer">Vers.-Nr.: {{k.sozialversicherungsnummer}}</div>
+                    <div class="termin">{% if searchstring %}{{k.termin|date:"D j.n.y  H:i"}} Uhr{% else %}{{k.termin|date:"H:i"}} Uhr{% endif %}</div>
+                </div>
+                <div class="buttons">
+                    <a href="{% url 'arrival' k.id %}"><button class="ankunftsbutton">Ankunft</button></a><br/>
+                    <a href="{% url 'testergebnis' k.id %}"><button class="ergebnisbutton">Testergebnis</button></a><br/>
+                    <a href="{% url 'activate' k.id %}"><button class="editbutton">Übertrag OE-testet</button></a>
+                </div>            
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+    <p>Heute keine Kunden für Schnelltests angemeldet.</p>
+    {% endif %}    
+    </main>
+    <footer></footer>
+  </body>
+</html>

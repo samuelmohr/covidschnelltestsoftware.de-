@@ -1,0 +1,4 @@
+Folder for temporary files like generated pdfs. 
+Moreover, in case of Windows, include a pdfprinter here. 
+We used 
+http://www.columbia.edu/~em36/pdftoprinter.html

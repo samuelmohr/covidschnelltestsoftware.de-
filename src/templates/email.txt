@@ -1,0 +1,6 @@
+{% ifequal kunde.anrede "Frau" %}Sehr geehrte Frau{% else %}{% ifequal kunde.anrede "Herr" %}Sehr geehrter Herr{% else %}Sehr geehrt*{% endifequal %}{% endifequal %} {{kunde.nachname}},
+
+im Anhang finden sie ihr Testergebnis vom {{kunde.testzeit|date:"d. F Y"}} als PDF.
+
+Mit freundlichen Grüßen
+…

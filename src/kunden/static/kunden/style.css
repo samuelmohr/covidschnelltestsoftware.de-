@@ -1,0 +1,252 @@
+
+html {
+  --top-spacing: 100px;
+}
+
+body {
+    margin: 0;
+    z-index:1;
+}
+    
+header {
+  background-color: #444444;
+  padding: 7pt 0pt;
+  margin: 0;
+  color: white;
+  text-align: right;
+  height: 25px;
+  
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index:2;
+}
+
+header a {
+  float: right;
+  display: block;
+  text-decoration: none;
+    
+  color: white;
+  margin: 2pt 10pt;
+  font-weight: bold;
+}
+
+header .search-container  {
+  float: left;
+  border: none;
+  margin-top: 2px;
+  margin-left: 26px;
+}
+
+header .search-container input[type=text] {
+  float: left;
+  padding: 4px;
+  margin: 0;
+  border: none;
+  font-size: 17px;
+}
+header button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 0px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+header a.delete {
+  float: left; 
+  margin-top: 2px;
+  
+}
+
+header button:hover {
+  background: #ccc;
+}
+
+ul {
+}
+li {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  height: 130px;
+  width: 600px;
+  display:inline-block;
+  background-color: #eeeeee;
+  margin: 15pt 30pt;
+  max-width: 500px;
+}
+
+li:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.buttons {
+    display: inline-block;    
+    vertical-align:top;
+    margin: 5pt 15pt;
+    float:right
+    
+}
+.buttons button {
+    margin: 3pt;
+    height: 30px;
+    width:140px;
+    font-size: 100%;
+    font-weight: bold;
+    
+}
+
+.daten {
+        display: inline-block;
+        max-width: 230pt;
+}
+
+.name {
+    font-size: 140%;
+    font-weight: bold;
+    margin: 20pt 15pt 5pt;
+}
+
+.sozialversicherungsnummer {
+    font-style: italic;
+    font-size: 100%;
+    margin: 3pt 45pt;
+}
+.termin {
+    font-size: 120%;
+    margin: 10pt 35pt;
+}
+
+li.deactivated {
+    
+    opacity: 0.5;
+}
+
+
+li.active {
+    color: #ff0270;
+    border-style: solid;
+    border-color: #ff0270;
+    border-width: 2px;
+}
+
+.ankunftsbutton {
+    background-color: white; 
+    color: black; 
+
+    border-radius: 4px;
+    border: 2px solid #4CAF50;
+}
+.ankunftsbutton:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.ergebnisbutton {
+    background-color: white; 
+    color: black; 
+
+    border-radius: 4px;
+    border: 2px solid #f44336;
+}
+.ergebnisbutton:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.editbutton {
+    background-color: white; 
+    color: black; 
+
+    border-radius: 4px;
+    border: 2px solid #008CBA;
+}
+
+.editbutton:hover {
+  background-color: #008CBA;
+  color: white;
+}
+.abbrbutton {
+    background-color: white; 
+    color: black; 
+
+    border-radius: 4px;
+    border: 2px solid #555555;
+}
+
+.abbrbutton:hover {
+  background-color: #555555;
+  color: white;
+}
+
+.unten {
+    margin-top: 40px;
+    
+}
+.unten a {
+        margin: 3pt;
+    height: 30px;
+    width:140px;
+    font-size: 110%;
+    font-weight: bold;
+    padding: 1pt 15pt;
+    text-decoration: none;
+
+}
+.unten input {
+        margin: 3pt;
+    height: 30px;
+    width:140px;
+    font-size: 110%;
+    font-weight: bold;
+
+}
+
+.input {
+     margin: 30pt 50pt;
+    font-size: 120%;
+   
+}
+
+label {
+  display: inline-block;
+  width: 180px;
+  margin: 4px;
+}
+
+.option{
+    font-size: 130%;
+    font-weight: bold;
+  
+}
+.negativoption {
+    color: #008f29;
+}
+.positivoption {
+    color: #8f0002;
+}
+
+input {
+    font-size: 120%;
+   margin: 4px;
+}
+.bemerkung{
+      border: 2px solid gray;
+  border-radius: 5px;
+padding: 5px 20px;
+}
+
+.notifychoices {
+    margin-top: 40px;
+    
+}
+
+.notifychoices label {
+  display: inline-block;
+  width: 600pt;
+  margin: 4px;
+}
